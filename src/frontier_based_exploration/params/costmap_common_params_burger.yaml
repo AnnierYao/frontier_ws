@@ -1,0 +1,19 @@
+# 删除 footprint_topic 相关参数，直接定义 footprint
+footprint: [[-0.105, -0.105], [-0.105, 0.105], [0.041, 0.105], [0.041, -0.105]]
+#robot_radius: 0.105
+
+obstacle_layer:
+  enabled: true
+  obstacle_range: 3.0
+  raytrace_range: 3.5
+  observation_sources: scan
+  scan: {sensor_frame: base_scan, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+  track_unknown_space: true
+  unknown_cost_value: 0
+
+inflation_layer:
+  enabled: true
+  inflation_radius: 1.0
+  cost_scaling_factor: 3.0
+
+map_type: costmap

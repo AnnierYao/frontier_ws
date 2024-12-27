@@ -1,0 +1,32 @@
+<launch>
+    <arg name="first_tb3"  default="robot_1"/>
+    <arg name="second_tb3" default="robot_2"/>
+    <arg name="third_tb3"  default="robot_3"/>
+
+    <node name="$(arg first_tb3)_detector" pkg="frontier_based_exploration" type="detector.py" output="screen">
+        <param name="map_topic" value="/robot_1/map"/>
+    </node>
+
+    <node name="$(arg second_tb3)_detector" pkg="frontier_based_exploration" type="detector.py" output="screen">
+        <param name="map_topic" value="/robot_2/map"/>
+    </node>
+
+    <node name="$(arg third_tb3)_detector" pkg="frontier_based_exploration" type="detector.py" output="screen">
+        <param name="map_topic" value="/robot_3/map"/>
+    </node>
+
+    <node pkg="frontier_based_exploration" type="filter.py" name="filter" output="screen">
+      <param name="map_topic" value="/map"/>
+      <param name="namespace_init_count" value="0"/>
+      <param name="info_radius" value= "1"/> 
+      <param name="costmap_clearing_threshold" value="70"/> 
+      <param name="goals_topic" value="/detected_points"/> 
+      <param name="n_robots" value="3"/>
+      <param name="namespace" value="/robot_"/>
+      <param name="rate" value="100"/>
+    </node>
+
+    
+
+<!-- http://wiki.ros.org/rospy_tutorials/Tutorials/Makefile -->
+</launch>

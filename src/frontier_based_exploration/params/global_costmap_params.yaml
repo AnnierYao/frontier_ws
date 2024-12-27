@@ -1,0 +1,8 @@
+global_costmap:
+  update_frequency: 50.0
+  publish_frequency: 50.0
+  transform_tolerance: 0.5
+
+  static_map: true
+
+  footprint: [[-0.105, -0.105], [-0.105, 0.105], [0.041, 0.105], [0.041, -0.105]]

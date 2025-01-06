@@ -4,6 +4,11 @@
   <xacro:arg name="imu_visual"   default="false"/>
   <!-- Add robot namespace as a property -->
   <xacro:property name="robot_namespace" value="$(arg robot_namespace)"/>
+  <!--
+  <xacro:property name="robot_x" value="$(arg robot_x)"/>
+  <xacro:property name="robot_y" value="$(arg robot_y)"/>
+  <xacro:property name="robot_yaw" value="$(arg robot_yaw)"/>
+  -->
 
   <gazebo reference="base_link">
     <material>Gazebo/DarkGrey</material>
@@ -55,8 +60,8 @@
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>$(arg robot_namespace)/odom</odometryFrame>
       <robotBaseFrame>$(arg robot_namespace)/base_footprint</robotBaseFrame>
-      <publishOdomTF>true</publishOdomTF>
-      <publishWheelTF>false</publishWheelTF>
+      <publishOdomTF>true</publishOdomTF> 
+      <publishWheelTF>false</publishWheelTF> 
       <publishTf>true</publishTf>
       <publishWheelJointState>true</publishWheelJointState>
       <legacyMode>false</legacyMode>
@@ -70,6 +75,10 @@
       <rosDebugLevel>na</rosDebugLevel>
       <odometryRate>10.0</odometryRate>
       <isGroundTruth>false</isGroundTruth>
+      <odometrySource>world</odometrySource>
+      <!--
+      <initialPose>$(arg robot_x) $(arg robot_y) 0 $(arg robot_yaw) 0 0</initialPose>
+      -->
       <alwaysOn>true</alwaysOn>
     </plugin>
   </gazebo>

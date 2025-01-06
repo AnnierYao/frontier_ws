@@ -177,11 +177,12 @@ frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/frontier
 frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/clean
 frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/clean
 frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/visualization_msgs_generate_messages_py.dir/clean
-frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
-frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/clean
+frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/clean
 frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
 frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/actionlib_generate_messages_eus.dir/clean
 frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/frontier_based_exploration_gencpp.dir/clean
+frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
+frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/clean
 frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/tf2_msgs_generate_messages_py.dir/clean
 frontier_based_exploration/clean: frontier_based_exploration/CMakeFiles/frontier_based_exploration_genlisp.dir/clean
 
@@ -647,7 +648,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googlemock/CMakeFiles/gmoc
 gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=12,13 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=17,18 "Built target gmock_main"
 .PHONY : gtest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -674,7 +675,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/clean:
 gtest/googlemock/CMakeFiles/gmock.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=10,11 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=15,16 "Built target gmock"
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -701,7 +702,7 @@ gtest/googlemock/CMakeFiles/gmock.dir/clean:
 gtest/googletest/CMakeFiles/gtest_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=16,17 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=21,22 "Built target gtest_main"
 .PHONY : gtest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -728,7 +729,7 @@ gtest/googletest/CMakeFiles/gtest_main.dir/clean:
 gtest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=14,15 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=19,20 "Built target gtest"
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -812,7 +813,7 @@ turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_py.dir/all: turtleb
 turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_py.dir/all: turtlebot3_msgs/CMakeFiles/_turtlebot3_msgs_generate_messages_check_deps_Sound.dir/all
 	$(MAKE) -f turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_py.dir/build.make turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_py.dir/depend
 	$(MAKE) -f turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_py.dir/build.make turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=74,75,76,77 "Built target turtlebot3_msgs_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=79,80,81,82 "Built target turtlebot3_msgs_generate_messages_py"
 .PHONY : turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -842,7 +843,7 @@ turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_nodejs.dir/all: tur
 turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_nodejs.dir/all: turtlebot3_msgs/CMakeFiles/_turtlebot3_msgs_generate_messages_check_deps_Sound.dir/all
 	$(MAKE) -f turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_nodejs.dir/build.make turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_nodejs.dir/depend
 	$(MAKE) -f turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_nodejs.dir/build.make turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=71,72,73 "Built target turtlebot3_msgs_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=76,77,78 "Built target turtlebot3_msgs_generate_messages_nodejs"
 .PHONY : turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
@@ -899,7 +900,7 @@ turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_lisp.dir/all: turtl
 turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_lisp.dir/all: turtlebot3_msgs/CMakeFiles/_turtlebot3_msgs_generate_messages_check_deps_Sound.dir/all
 	$(MAKE) -f turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_lisp.dir/build.make turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_lisp.dir/build.make turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=68,69,70 "Built target turtlebot3_msgs_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=73,74,75 "Built target turtlebot3_msgs_generate_messages_lisp"
 .PHONY : turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1041,7 +1042,7 @@ turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_eus.dir/all: turtle
 turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_eus.dir/all: turtlebot3_msgs/CMakeFiles/_turtlebot3_msgs_generate_messages_check_deps_Sound.dir/all
 	$(MAKE) -f turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_eus.dir/build.make turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_eus.dir/depend
 	$(MAKE) -f turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_eus.dir/build.make turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=64,65,66,67 "Built target turtlebot3_msgs_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=69,70,71,72 "Built target turtlebot3_msgs_generate_messages_eus"
 .PHONY : turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1179,7 +1180,7 @@ turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_cpp.dir/all: turtle
 turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_cpp.dir/all: turtlebot3_msgs/CMakeFiles/_turtlebot3_msgs_generate_messages_check_deps_Sound.dir/all
 	$(MAKE) -f turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_cpp.dir/build.make turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_cpp.dir/depend
 	$(MAKE) -f turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_cpp.dir/build.make turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=61,62,63 "Built target turtlebot3_msgs_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=66,67,68 "Built target turtlebot3_msgs_generate_messages_cpp"
 .PHONY : turtlebot3_msgs/CMakeFiles/turtlebot3_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1319,7 +1320,7 @@ frontier_based_exploration/CMakeFiles/frontier_based_exploration_gennodejs.dir/a
 
 # Build rule for subdir invocation for target.
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/frontier_based_exploration_gennodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_gennodejs.dir/rule
@@ -1724,7 +1725,7 @@ frontier_based_exploration/CMakeFiles/frontier_based_exploration_genpy.dir/all: 
 
 # Build rule for subdir invocation for target.
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/frontier_based_exploration_genpy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_genpy.dir/rule
@@ -1998,7 +1999,7 @@ frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messag
 
 # Build rule for subdir invocation for target.
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages.dir/rule
@@ -2155,14 +2156,15 @@ frontier_based_exploration/CMakeFiles/roscpp_generate_messages_cpp.dir/clean:
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_nodejs.dir/all: turtlebot3_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_nodejs.dir/all: frontier_based_exploration/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_nodejs.dir/all: frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_PointArray.dir/all
+frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_nodejs.dir/all: frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/all
 	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_nodejs.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_nodejs.dir/depend
 	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_nodejs.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=7 "Built target frontier_based_exploration_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=10,11 "Built target frontier_based_exploration_generate_messages_nodejs"
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_nodejs.dir/rule
@@ -2346,14 +2348,15 @@ frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messa
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/all: turtlebot3_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/all
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/all: frontier_based_exploration/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/all: frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_PointArray.dir/all
+frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/all: frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/all
 	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/depend
 	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=4,5 "Built target frontier_based_exploration_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=5,6,7 "Built target frontier_based_exploration_generate_messages_eus"
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/rule
@@ -2564,14 +2567,15 @@ frontier_based_exploration/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/cle
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/all: turtlebot3_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/all
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/all: frontier_based_exploration/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/all: frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_PointArray.dir/all
+frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/all: frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/all
 	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/depend
 	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=8,9 "Built target frontier_based_exploration_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=12,13,14 "Built target frontier_based_exploration_generate_messages_py"
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/rule
@@ -2593,14 +2597,15 @@ frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messag
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_lisp.dir/all: turtlebot3_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_lisp.dir/all: frontier_based_exploration/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_lisp.dir/all: frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_PointArray.dir/all
+frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_lisp.dir/all: frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/all
 	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_lisp.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_lisp.dir/depend
 	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_lisp.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=6 "Built target frontier_based_exploration_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=8,9 "Built target frontier_based_exploration_generate_messages_lisp"
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_lisp.dir/rule
@@ -2708,7 +2713,7 @@ frontier_based_exploration/CMakeFiles/frontier_based_exploration_geneus.dir/all:
 
 # Build rule for subdir invocation for target.
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/frontier_based_exploration_geneus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_geneus.dir/rule
@@ -2805,60 +2810,31 @@ frontier_based_exploration/CMakeFiles/visualization_msgs_generate_messages_py.di
 .PHONY : frontier_based_exploration/CMakeFiles/visualization_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
-# Target rules for target frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
+# Target rules for target frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir
 
 # All Build rule for target.
-frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_py"
-.PHONY : frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/all:
+	$(MAKE) -f frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/build.make frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/depend
+	$(MAKE) -f frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/build.make frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num= "Built target _frontier_based_exploration_generate_messages_check_deps_RobotState"
+.PHONY : frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/all
 
 # Build rule for subdir invocation for target.
-frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
-.PHONY : frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+.PHONY : frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_py: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+_frontier_based_exploration_generate_messages_check_deps_RobotState: frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# clean rule for target.
-frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
-.PHONY : frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir
-
-# All Build rule for target.
-frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/all: turtlebot3_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/all: frontier_based_exploration/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/all: frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_PointArray.dir/all
-	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/depend
-	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=3 "Built target frontier_based_exploration_generate_messages_cpp"
-.PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
-.PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-frontier_based_exploration_generate_messages_cpp: frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/rule
-
-.PHONY : frontier_based_exploration_generate_messages_cpp
+.PHONY : _frontier_based_exploration_generate_messages_check_deps_RobotState
 
 # clean rule for target.
-frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/clean:
-	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/clean
-.PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/clean
+frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/clean:
+	$(MAKE) -f frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/build.make frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/clean
+.PHONY : frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/clean
 
 #=============================================================================
 # Target rules for target frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
@@ -2926,7 +2902,7 @@ frontier_based_exploration/CMakeFiles/frontier_based_exploration_gencpp.dir/all:
 
 # Build rule for subdir invocation for target.
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/frontier_based_exploration_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_gencpp.dir/rule
@@ -2940,6 +2916,63 @@ frontier_based_exploration_gencpp: frontier_based_exploration/CMakeFiles/frontie
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_gencpp.dir/clean:
 	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_gencpp.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_gencpp.dir/clean
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_gencpp.dir/clean
+
+#=============================================================================
+# Target rules for target frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_py"
+.PHONY : frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
+.PHONY : frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_py: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_py
+
+# clean rule for target.
+frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
+.PHONY : frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir
+
+# All Build rule for target.
+frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/all: turtlebot3_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/all: frontier_based_exploration/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/all: frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_PointArray.dir/all
+frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/all: frontier_based_exploration/CMakeFiles/_frontier_based_exploration_generate_messages_check_deps_RobotState.dir/all
+	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/depend
+	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=3,4 "Built target frontier_based_exploration_generate_messages_cpp"
+.PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
+.PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+frontier_based_exploration_generate_messages_cpp: frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/rule
+
+.PHONY : frontier_based_exploration_generate_messages_cpp
+
+# clean rule for target.
+frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/clean:
+	$(MAKE) -f frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/build.make frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/clean
+.PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/clean
 
 #=============================================================================
 # Target rules for target frontier_based_exploration/CMakeFiles/tf2_msgs_generate_messages_py.dir
@@ -2980,7 +3013,7 @@ frontier_based_exploration/CMakeFiles/frontier_based_exploration_genlisp.dir/all
 
 # Build rule for subdir invocation for target.
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 frontier_based_exploration/CMakeFiles/frontier_based_exploration_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/annie/frontier_ws/build/CMakeFiles 0
 .PHONY : frontier_based_exploration/CMakeFiles/frontier_based_exploration_genlisp.dir/rule
@@ -3108,8 +3141,8 @@ turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/all: frontie
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/all: frontier_based_exploration/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/all: frontier_based_exploration/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/all: frontier_based_exploration/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
-turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/all: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/all: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/all: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/all: turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/all
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/all: turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_nodejs.dir/all
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/all: turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/all
@@ -3117,7 +3150,7 @@ turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/all: turtleb
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/all: turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/all
 	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/depend
 	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=18,19 "Built target turtlebot3_diagnostics"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=23,24 "Built target turtlebot3_diagnostics"
 .PHONY : turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3207,7 +3240,7 @@ turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_py
 turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_py.dir/all: turtlebot3/turtlebot3_example/CMakeFiles/_turtlebot3_example_generate_messages_check_deps_Turtlebot3Feedback.dir/all
 	$(MAKE) -f turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_py.dir/build.make turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_py.dir/depend
 	$(MAKE) -f turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_py.dir/build.make turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=51,52,53,54,55,56,57,58 "Built target turtlebot3_example_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=56,57,58,59,60,61,62,63 "Built target turtlebot3_example_generate_messages_py"
 .PHONY : turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3243,7 +3276,7 @@ turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_no
 turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_nodejs.dir/all: turtlebot3/turtlebot3_example/CMakeFiles/_turtlebot3_example_generate_messages_check_deps_Turtlebot3Feedback.dir/all
 	$(MAKE) -f turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_nodejs.dir/build.make turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_nodejs.dir/depend
 	$(MAKE) -f turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_nodejs.dir/build.make turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=44,45,46,47,48,49,50 "Built target turtlebot3_example_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=49,50,51,52,53,54,55 "Built target turtlebot3_example_generate_messages_nodejs"
 .PHONY : turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3445,7 +3478,7 @@ turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_li
 turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_lisp.dir/all: turtlebot3/turtlebot3_example/CMakeFiles/_turtlebot3_example_generate_messages_check_deps_Turtlebot3Feedback.dir/all
 	$(MAKE) -f turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_lisp.dir/build.make turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_lisp.dir/depend
 	$(MAKE) -f turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_lisp.dir/build.make turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=37,38,39,40,41,42,43 "Built target turtlebot3_example_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=42,43,44,45,46,47,48 "Built target turtlebot3_example_generate_messages_lisp"
 .PHONY : turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3616,7 +3649,7 @@ turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_cp
 turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_cpp.dir/all: turtlebot3/turtlebot3_example/CMakeFiles/_turtlebot3_example_generate_messages_check_deps_Turtlebot3Feedback.dir/all
 	$(MAKE) -f turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_cpp.dir/build.make turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_cpp.dir/depend
 	$(MAKE) -f turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_cpp.dir/build.make turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=22,23,24,25,26,27,28 "Built target turtlebot3_example_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=27,28,29,30,31,32,33 "Built target turtlebot3_example_generate_messages_cpp"
 .PHONY : turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3706,7 +3739,7 @@ turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_eu
 turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_eus.dir/all: turtlebot3/turtlebot3_example/CMakeFiles/_turtlebot3_example_generate_messages_check_deps_Turtlebot3Feedback.dir/all
 	$(MAKE) -f turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_eus.dir/build.make turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_eus.dir/depend
 	$(MAKE) -f turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_eus.dir/build.make turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=29,30,31,32,33,34,35,36 "Built target turtlebot3_example_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=34,35,36,37,38,39,40,41 "Built target turtlebot3_example_generate_messages_eus"
 .PHONY : turtlebot3/turtlebot3_example/CMakeFiles/turtlebot3_example_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3781,13 +3814,13 @@ turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/all: 
 turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/all: frontier_based_exploration/CMakeFiles/actionlib_generate_messages_nodejs.dir/all
 turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/all: frontier_based_exploration/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/all
 turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/all: frontier_based_exploration/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/all
-turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/all: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
 turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/all: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
 turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/all: frontier_based_exploration/CMakeFiles/actionlib_generate_messages_eus.dir/all
+turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/all: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
 turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/all: frontier_based_exploration/CMakeFiles/tf2_msgs_generate_messages_py.dir/all
 	$(MAKE) -f turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/build.make turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/depend
 	$(MAKE) -f turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/build.make turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=59,60 "Built target turtlebot3_fake_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=64,65 "Built target turtlebot3_fake_node"
 .PHONY : turtlebot3_simulations/turtlebot3_fake/CMakeFiles/turtlebot3_fake_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4316,9 +4349,9 @@ turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: fr
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: frontier_based_exploration/CMakeFiles/actionlib_generate_messages_nodejs.dir/all
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: frontier_based_exploration/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/all
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: frontier_based_exploration/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/all
-turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: frontier_based_exploration/CMakeFiles/actionlib_generate_messages_eus.dir/all
+turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: frontier_based_exploration/CMakeFiles/tf2_msgs_generate_messages_py.dir/all
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/all
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/all
@@ -4344,7 +4377,7 @@ turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: tu
 turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all: turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/all
 	$(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/depend
 	$(MAKE) -f turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/build.make turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=20,21 "Built target turtlebot3_drive"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=25,26 "Built target turtlebot3_drive"
 .PHONY : turtlebot3_simulations/turtlebot3_gazebo/CMakeFiles/turtlebot3_drive.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4526,8 +4559,8 @@ turtlebot3/turtlebot3_slam/CMakeFiles/flat_world_imu_node.dir/all: frontier_base
 turtlebot3/turtlebot3_slam/CMakeFiles/flat_world_imu_node.dir/all: frontier_based_exploration/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
 turtlebot3/turtlebot3_slam/CMakeFiles/flat_world_imu_node.dir/all: frontier_based_exploration/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
 turtlebot3/turtlebot3_slam/CMakeFiles/flat_world_imu_node.dir/all: frontier_based_exploration/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
-turtlebot3/turtlebot3_slam/CMakeFiles/flat_world_imu_node.dir/all: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
 turtlebot3/turtlebot3_slam/CMakeFiles/flat_world_imu_node.dir/all: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+turtlebot3/turtlebot3_slam/CMakeFiles/flat_world_imu_node.dir/all: frontier_based_exploration/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
 	$(MAKE) -f turtlebot3/turtlebot3_slam/CMakeFiles/flat_world_imu_node.dir/build.make turtlebot3/turtlebot3_slam/CMakeFiles/flat_world_imu_node.dir/depend
 	$(MAKE) -f turtlebot3/turtlebot3_slam/CMakeFiles/flat_world_imu_node.dir/build.make turtlebot3/turtlebot3_slam/CMakeFiles/flat_world_imu_node.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=1,2 "Built target flat_world_imu_node"

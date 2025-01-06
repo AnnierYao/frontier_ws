@@ -65,17 +65,21 @@
   <build_export_depend>tf</build_export_depend>
   <build_export_depend>visualization_msgs</build_export_depend>
   <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
   <exec_depend>nav_msgs</exec_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>tf</exec_depend>
   <exec_depend>visualization_msgs</exec_depend>
-
-
-  <!-- The export tag contains other, unspecified, tags -->
+  <test_depend>gtest</test_depend>
+  <doc_depend>doxygen</doc_depend>
+  <test_depend>python-pytest</test_depend>
   <export>
-    <!-- Other tools can request additional information be placed here -->
-
+    <export_type>python</export_type>
+    <key>PKG</key>
+    <description>The frontier_based_exploration package</description>
+    <maintainer email="lee-jaewon@todo.todo">lee-jaewon</maintainer>
+    <license>TODO</license>
   </export>
 </package>

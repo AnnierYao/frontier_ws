@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/annie/frontier_ws/build
 include frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/progress.make
 
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus: /home/annie/frontier_ws/devel/share/roseus/ros/frontier_based_exploration/msg/PointArray.l
+frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus: /home/annie/frontier_ws/devel/share/roseus/ros/frontier_based_exploration/msg/RobotState.l
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus: /home/annie/frontier_ws/devel/share/roseus/ros/frontier_based_exploration/manifest.l
 
 
@@ -63,12 +64,19 @@ frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messag
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from frontier_based_exploration/PointArray.msg"
 	cd /home/annie/frontier_ws/build/frontier_based_exploration && ../catkin_generated/env_cached.sh /home/annie/miniconda3/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg -Ifrontier_based_exploration:/home/annie/frontier_ws/src/frontier_based_exploration/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p frontier_based_exploration -o /home/annie/frontier_ws/devel/share/roseus/ros/frontier_based_exploration/msg
 
+/home/annie/frontier_ws/devel/share/roseus/ros/frontier_based_exploration/msg/RobotState.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/annie/frontier_ws/devel/share/roseus/ros/frontier_based_exploration/msg/RobotState.l: /home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg
+/home/annie/frontier_ws/devel/share/roseus/ros/frontier_based_exploration/msg/RobotState.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from frontier_based_exploration/RobotState.msg"
+	cd /home/annie/frontier_ws/build/frontier_based_exploration && ../catkin_generated/env_cached.sh /home/annie/miniconda3/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg -Ifrontier_based_exploration:/home/annie/frontier_ws/src/frontier_based_exploration/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p frontier_based_exploration -o /home/annie/frontier_ws/devel/share/roseus/ros/frontier_based_exploration/msg
+
 /home/annie/frontier_ws/devel/share/roseus/ros/frontier_based_exploration/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for frontier_based_exploration"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for frontier_based_exploration"
 	cd /home/annie/frontier_ws/build/frontier_based_exploration && ../catkin_generated/env_cached.sh /home/annie/miniconda3/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/annie/frontier_ws/devel/share/roseus/ros/frontier_based_exploration frontier_based_exploration std_msgs geometry_msgs
 
 frontier_based_exploration_generate_messages_eus: frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus
 frontier_based_exploration_generate_messages_eus: /home/annie/frontier_ws/devel/share/roseus/ros/frontier_based_exploration/msg/PointArray.l
+frontier_based_exploration_generate_messages_eus: /home/annie/frontier_ws/devel/share/roseus/ros/frontier_based_exploration/msg/RobotState.l
 frontier_based_exploration_generate_messages_eus: /home/annie/frontier_ws/devel/share/roseus/ros/frontier_based_exploration/manifest.l
 frontier_based_exploration_generate_messages_eus: frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_eus.dir/build.make
 

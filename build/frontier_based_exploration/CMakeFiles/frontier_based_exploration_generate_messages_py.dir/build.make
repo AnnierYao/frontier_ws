@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/annie/frontier_ws/build
 include frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/progress.make
 
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py: /home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/_PointArray.py
+frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py: /home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/_RobotState.py
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py: /home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/__init__.py
 
 
@@ -63,13 +64,21 @@ frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messag
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG frontier_based_exploration/PointArray"
 	cd /home/annie/frontier_ws/build/frontier_based_exploration && ../catkin_generated/env_cached.sh /home/annie/miniconda3/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg -Ifrontier_based_exploration:/home/annie/frontier_ws/src/frontier_based_exploration/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p frontier_based_exploration -o /home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg
 
+/home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/_RobotState.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/_RobotState.py: /home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg
+/home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/_RobotState.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG frontier_based_exploration/RobotState"
+	cd /home/annie/frontier_ws/build/frontier_based_exploration && ../catkin_generated/env_cached.sh /home/annie/miniconda3/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg -Ifrontier_based_exploration:/home/annie/frontier_ws/src/frontier_based_exploration/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p frontier_based_exploration -o /home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg
+
 /home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/__init__.py: /home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/_PointArray.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for frontier_based_exploration"
+/home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/__init__.py: /home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/_RobotState.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for frontier_based_exploration"
 	cd /home/annie/frontier_ws/build/frontier_based_exploration && ../catkin_generated/env_cached.sh /home/annie/miniconda3/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg --initpy
 
 frontier_based_exploration_generate_messages_py: frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py
 frontier_based_exploration_generate_messages_py: /home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/_PointArray.py
+frontier_based_exploration_generate_messages_py: /home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/_RobotState.py
 frontier_based_exploration_generate_messages_py: /home/annie/frontier_ws/devel/lib/python3/dist-packages/frontier_based_exploration/msg/__init__.py
 frontier_based_exploration_generate_messages_py: frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_py.dir/build.make
 

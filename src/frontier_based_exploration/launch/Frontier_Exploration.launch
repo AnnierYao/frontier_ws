@@ -5,15 +5,30 @@
 
     <node name="$(arg first_tb3)_detector" pkg="frontier_based_exploration" type="detector.py" output="screen">
         <param name="map_topic" value="/robot_1/map"/>
+        <param name="odom_topic" value="/robot_1/odom"/>
+        <param name="base_link_topic" value="/robot_1/base_link"/>
+        <param name="namespace" value="/robot_1"/>
+        <param name="global_map_topic" value="/map"/>
+        <param name="local_map_size" value="256"/>
     </node>
 
     <node name="$(arg second_tb3)_detector" pkg="frontier_based_exploration" type="detector.py" output="screen">
         <param name="map_topic" value="/robot_2/map"/>
+        <param name="odom_topic" value="/robot_2/odom"/>
+        <param name="base_link_topic" value="/robot_2/base_link"/>
+        <param name="namespace" value="/robot_2"/>
+        <param name="local_map_size" value="256"/>
     </node>
 
     <node name="$(arg third_tb3)_detector" pkg="frontier_based_exploration" type="detector.py" output="screen">
         <param name="map_topic" value="/robot_3/map"/>
+        <param name="odom_topic" value="/robot_3/odom"/>
+        <param name="base_link_topic" value="/robot_3/base_link"/>
+        <param name="namespace" value="/robot_3"/>
+        <param name="local_map_size" value="256"/>
     </node>
+
+    <!--
 
     <node pkg="frontier_based_exploration" type="filter.py" name="filter" output="screen">
       <param name="map_topic" value="/map"/>
@@ -38,6 +53,40 @@
       <param name="delay_after_assignement" value="1.5"/>
       <param name="rate" value="100"/>
     </node>
+    -->
+
+    <node pkg="frontier_based_exploration" type="global_frontier_detector.py" 
+          name="global_frontier_detector">
+    </node>
+    
+    <node pkg="frontier_based_exploration" type="train_maddpg.py" 
+          name="maddpg_trainer" output="screen">
+        <param name="n_robots" value="3"/>
+        <param name="local_map_size" value="256"/>
+        
+        <param name="max_episodes" value="10000"/>
+        <param name="max_steps" value="1000"/>
+        <param name="batch_size" value="64"/>
+        <param name="memory_capacity" value="1000000"/>
+        <param name="episodes_before_train" value="100"/>
+        <param name="update_interval" value="100"/>
+        <param name="save_interval" value="100"/>
+        
+        <param name="model_path" value="$(find frontier_based_exploration)/trained_models/"/>
+        
+        <rosparam param="robot_namespaces">["robot_1", "robot_2", "robot_3"]</rosparam>
+        
+        <param name="max_linear_velocity" value="0.5"/>
+        <param name="max_angular_velocity" value="1.0"/>
+        
+        <param name="global_map_topic" value="/map"/>
+        <param name="cmd_vel_prefix" value="cmd_vel"/>
+        <param name="local_map_prefix" value="local_map"/>
+        <param name="robot_state_prefix" value="robot_state"/>
+        <param name="frontiers_prefix" value="frontiers"/>
+        <param name="use_frontier" value="true"/>
+    </node>
+
 
 <!-- http://wiki.ros.org/rospy_tutorials/Tutorials/Makefile -->
 </launch>

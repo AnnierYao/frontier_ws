@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "frontier_based_exploration: 1 messages, 0 services")
+message(STATUS "frontier_based_exploration: 2 messages, 0 services")
 
 set(MSG_I_FLAGS "-Ifrontier_based_exploration:/home/annie/frontier_ws/src/frontier_based_exploration/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg")
 
@@ -22,6 +22,11 @@ add_custom_target(_frontier_based_exploration_generate_messages_check_deps_${_fi
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "frontier_based_exploration" "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg" "geometry_msgs/Point"
 )
 
+get_filename_component(_filename "/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg" NAME_WE)
+add_custom_target(_frontier_based_exploration_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "frontier_based_exploration" "/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg" "std_msgs/Header"
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -32,6 +37,12 @@ _generate_msg_cpp(frontier_based_exploration
   "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/frontier_based_exploration
+)
+_generate_msg_cpp(frontier_based_exploration
+  "/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/frontier_based_exploration
 )
 
@@ -51,6 +62,8 @@ add_dependencies(frontier_based_exploration_generate_messages frontier_based_exp
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg" NAME_WE)
 add_dependencies(frontier_based_exploration_generate_messages_cpp _frontier_based_exploration_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg" NAME_WE)
+add_dependencies(frontier_based_exploration_generate_messages_cpp _frontier_based_exploration_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(frontier_based_exploration_gencpp)
@@ -65,6 +78,12 @@ _generate_msg_eus(frontier_based_exploration
   "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/frontier_based_exploration
+)
+_generate_msg_eus(frontier_based_exploration
+  "/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/frontier_based_exploration
 )
 
@@ -84,6 +103,8 @@ add_dependencies(frontier_based_exploration_generate_messages frontier_based_exp
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg" NAME_WE)
 add_dependencies(frontier_based_exploration_generate_messages_eus _frontier_based_exploration_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg" NAME_WE)
+add_dependencies(frontier_based_exploration_generate_messages_eus _frontier_based_exploration_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(frontier_based_exploration_geneus)
@@ -98,6 +119,12 @@ _generate_msg_lisp(frontier_based_exploration
   "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/frontier_based_exploration
+)
+_generate_msg_lisp(frontier_based_exploration
+  "/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/frontier_based_exploration
 )
 
@@ -117,6 +144,8 @@ add_dependencies(frontier_based_exploration_generate_messages frontier_based_exp
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg" NAME_WE)
 add_dependencies(frontier_based_exploration_generate_messages_lisp _frontier_based_exploration_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg" NAME_WE)
+add_dependencies(frontier_based_exploration_generate_messages_lisp _frontier_based_exploration_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(frontier_based_exploration_genlisp)
@@ -131,6 +160,12 @@ _generate_msg_nodejs(frontier_based_exploration
   "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/frontier_based_exploration
+)
+_generate_msg_nodejs(frontier_based_exploration
+  "/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/frontier_based_exploration
 )
 
@@ -150,6 +185,8 @@ add_dependencies(frontier_based_exploration_generate_messages frontier_based_exp
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg" NAME_WE)
 add_dependencies(frontier_based_exploration_generate_messages_nodejs _frontier_based_exploration_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg" NAME_WE)
+add_dependencies(frontier_based_exploration_generate_messages_nodejs _frontier_based_exploration_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(frontier_based_exploration_gennodejs)
@@ -164,6 +201,12 @@ _generate_msg_py(frontier_based_exploration
   "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/frontier_based_exploration
+)
+_generate_msg_py(frontier_based_exploration
+  "/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/frontier_based_exploration
 )
 
@@ -182,6 +225,8 @@ add_dependencies(frontier_based_exploration_generate_messages frontier_based_exp
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg" NAME_WE)
+add_dependencies(frontier_based_exploration_generate_messages_py _frontier_based_exploration_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg" NAME_WE)
 add_dependencies(frontier_based_exploration_generate_messages_py _frontier_based_exploration_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

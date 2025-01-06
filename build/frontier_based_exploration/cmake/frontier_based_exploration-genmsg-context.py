@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg"
+messages_str = "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg;/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg"
 services_str = ""
 pkg_name = "frontier_based_exploration"
 dependencies_str = "std_msgs;geometry_msgs"

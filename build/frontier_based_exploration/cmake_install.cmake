@@ -38,7 +38,10 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/frontier_based_exploration/msg" TYPE FILE FILES "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/frontier_based_exploration/msg" TYPE FILE FILES
+    "/home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg"
+    "/home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

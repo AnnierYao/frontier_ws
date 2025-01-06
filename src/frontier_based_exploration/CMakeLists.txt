@@ -62,6 +62,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   PointArray.msg
+  RobotState.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -126,6 +127,7 @@ catkin_package(
 #  LIBRARIES Frontier-Based-Exploration
 #  CATKIN_DEPENDS geometry_msgs message_generation nav_msgs roscpp rospy std_msgs tf visualization_msgs
 #  DEPENDS system_lib
+  CATKIN_DEPENDS message_runtime
 )
 
 ###########
@@ -178,10 +180,13 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-# catkin_install_python(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+catkin_install_python(PROGRAMS
+  scripts/detector.py
+  scripts/filter.py
+  scripts/train_maddpg.py
+  scripts/global_frontier_detector.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html

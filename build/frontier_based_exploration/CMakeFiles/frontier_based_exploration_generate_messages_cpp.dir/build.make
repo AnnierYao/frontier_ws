@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/annie/frontier_ws/build
 include frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/progress.make
 
 frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp: /home/annie/frontier_ws/devel/include/frontier_based_exploration/PointArray.h
+frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp: /home/annie/frontier_ws/devel/include/frontier_based_exploration/RobotState.h
 
 
 /home/annie/frontier_ws/devel/include/frontier_based_exploration/PointArray.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
@@ -63,8 +64,16 @@ frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messag
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from frontier_based_exploration/PointArray.msg"
 	cd /home/annie/frontier_ws/src/frontier_based_exploration && /home/annie/frontier_ws/build/catkin_generated/env_cached.sh /home/annie/miniconda3/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/annie/frontier_ws/src/frontier_based_exploration/msg/PointArray.msg -Ifrontier_based_exploration:/home/annie/frontier_ws/src/frontier_based_exploration/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p frontier_based_exploration -o /home/annie/frontier_ws/devel/include/frontier_based_exploration -e /opt/ros/noetic/share/gencpp/cmake/..
 
+/home/annie/frontier_ws/devel/include/frontier_based_exploration/RobotState.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/annie/frontier_ws/devel/include/frontier_based_exploration/RobotState.h: /home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg
+/home/annie/frontier_ws/devel/include/frontier_based_exploration/RobotState.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/annie/frontier_ws/devel/include/frontier_based_exploration/RobotState.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/annie/frontier_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from frontier_based_exploration/RobotState.msg"
+	cd /home/annie/frontier_ws/src/frontier_based_exploration && /home/annie/frontier_ws/build/catkin_generated/env_cached.sh /home/annie/miniconda3/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/annie/frontier_ws/src/frontier_based_exploration/msg/RobotState.msg -Ifrontier_based_exploration:/home/annie/frontier_ws/src/frontier_based_exploration/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p frontier_based_exploration -o /home/annie/frontier_ws/devel/include/frontier_based_exploration -e /opt/ros/noetic/share/gencpp/cmake/..
+
 frontier_based_exploration_generate_messages_cpp: frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp
 frontier_based_exploration_generate_messages_cpp: /home/annie/frontier_ws/devel/include/frontier_based_exploration/PointArray.h
+frontier_based_exploration_generate_messages_cpp: /home/annie/frontier_ws/devel/include/frontier_based_exploration/RobotState.h
 frontier_based_exploration_generate_messages_cpp: frontier_based_exploration/CMakeFiles/frontier_based_exploration_generate_messages_cpp.dir/build.make
 
 .PHONY : frontier_based_exploration_generate_messages_cpp

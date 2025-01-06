@@ -3,5 +3,7 @@
   (:export
    "<POINTARRAY>"
    "POINTARRAY"
+   "<ROBOTSTATE>"
+   "ROBOTSTATE"
   ))
 

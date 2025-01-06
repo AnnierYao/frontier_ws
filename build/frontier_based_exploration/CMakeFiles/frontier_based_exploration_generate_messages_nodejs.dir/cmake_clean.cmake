@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/annie/frontier_ws/devel/share/gennodejs/ros/frontier_based_exploration/msg/PointArray.js"
+  "/home/annie/frontier_ws/devel/share/gennodejs/ros/frontier_based_exploration/msg/RobotState.js"
   "CMakeFiles/frontier_based_exploration_generate_messages_nodejs"
 )
 

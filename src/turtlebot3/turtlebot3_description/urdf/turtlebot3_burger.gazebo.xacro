@@ -60,21 +60,21 @@
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>$(arg robot_namespace)/odom</odometryFrame>
       <robotBaseFrame>$(arg robot_namespace)/base_footprint</robotBaseFrame>
+      <odometrySource>world</odometrySource>
       <publishOdomTF>true</publishOdomTF> 
       <publishWheelTF>false</publishWheelTF> 
       <publishTf>true</publishTf>
       <publishWheelJointState>true</publishWheelJointState>
       <legacyMode>false</legacyMode>
-      <updateRate>10.0</updateRate>
+      <updateRate>30.0</updateRate>
       <leftJoint>wheel_left_joint</leftJoint>
       <rightJoint>wheel_right_joint</rightJoint>
-      <wheelSeparation>0.160</wheelSeparation>
+      <wheelSeparation>0.287</wheelSeparation>
       <wheelDiameter>0.066</wheelDiameter>
       <wheelAcceleration>1</wheelAcceleration>
       <wheelTorque>10</wheelTorque>
       <rosDebugLevel>na</rosDebugLevel>
       <odometryRate>10.0</odometryRate>
-      <isGroundTruth>false</isGroundTruth>
       <odometrySource>world</odometrySource>
       <!--
       <initialPose>$(arg robot_x) $(arg robot_y) 0 $(arg robot_yaw) 0 0</initialPose>
@@ -88,11 +88,11 @@
     <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
       <alwaysOn>true</alwaysOn>
       <bodyName>imu_link</bodyName>
-      <frameName>$(arg robot_namespace)/imu_link</frameName>
+      <frameName>imu_link</frameName>
       <topicName>imu</topicName>
       <serviceName>imu_service</serviceName>
       <gaussianNoise>0.0</gaussianNoise>
-      <updateRate>10</updateRate>
+      <updateRate>0</updateRate>
       <imu>
         <noise>
           <type>gaussian</type>

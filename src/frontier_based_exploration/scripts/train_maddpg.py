@@ -34,7 +34,7 @@ class Trainer:
         
         # 添加matplotlib图形初始化
         plt.ion()  # 开启交互模式
-        self.fig, self.axes = plt.subplots(2, 2, figsize=(12, 10))
+        self.fig, self.axes = plt.subplots(3, 3, figsize=(12, 10))
         plt.show(block=False)
         
         # 训练参数
@@ -200,8 +200,8 @@ class Trainer:
     def local_map_callback(self, msg, robot_id):
         """处理局部地图数据"""
         map_data = np.array(msg.data).reshape(msg.info.height, msg.info.width)
-        rospy.loginfo(f"Robot {robot_id} local map shape: {map_data.shape}, resolution: {msg.info.resolution}")
-        rospy.loginfo(f"Local map origin: x={msg.info.origin.position.x}, y={msg.info.origin.position.y}")
+        # rospy.loginfo(f"Robot {robot_id} local map shape: {map_data.shape}, resolution: {msg.info.resolution}")
+        # rospy.loginfo(f"Local map origin: x={msg.info.origin.position.x}, y={msg.info.origin.position.y}")
         self.robot_data[robot_id]['local_map'] = map_data
         self.env.local_maps[robot_id] = map_data
         
@@ -224,8 +224,8 @@ class Trainer:
         if robot_id in self.robot_data:
             if hasattr(msg, 'data') and hasattr(msg, 'info'):
                 frontier_data = np.array(msg.data).reshape(msg.info.height, msg.info.width)
-                rospy.loginfo(f"Robot {robot_id} frontier map shape: {frontier_data.shape}, resolution: {msg.info.resolution}")
-                rospy.loginfo(f"Frontier map origin: x={msg.info.origin.position.x}, y={msg.info.origin.position.y}")
+                # rospy.loginfo(f"Robot {robot_id} frontier map shape: {frontier_data.shape}, resolution: {msg.info.resolution}")
+                # rospy.loginfo(f"Frontier map origin: x={msg.info.origin.position.x}, y={msg.info.origin.position.y}")
             else:
                 rospy.logwarn(f"Robot {robot_id} received frontier message without expected attributes")
             
@@ -243,7 +243,7 @@ class Trainer:
     def global_map_callback(self, msg):
         """处理全局地图数据"""
         map_data = np.array(msg.data).reshape(msg.info.height, msg.info.width)
-        rospy.loginfo(f"global map shape: {map_data.shape}")
+        # rospy.loginfo(f"global map shape: {map_data.shape}")
         self.env.global_map = map_data
         
         # 更新可视化数据
@@ -257,7 +257,7 @@ class Trainer:
     def global_frontier_callback(self, msg):
         """处理全局前沿地图数据"""
         map_data = np.array(msg.data).reshape(msg.info.height, msg.info.width)
-        rospy.loginfo(f"global frontier map shape: {map_data.shape}")
+        # rospy.loginfo(f"global frontier map shape: {map_data.shape}")
         self.env.global_frontiers = map_data
         
         # 更新可视化数据
@@ -462,53 +462,83 @@ class Trainer:
             for ax in self.axes.flat:
                 ax.clear()
             
-            # 绘制局部地图
-            if self.viz_data['local_map_1'] is not None:
-                self.axes[0,0].imshow(self.viz_data['local_map_1'], cmap='gray', origin='lower')
-                self.axes[0,0].set_title('Local Map')
+            # 获取所有机器人的位置
+            robot_positions = []
+            for i in range(self.n_robots):
+                if self.robot_data[i]['state'] is not None:
+                    robot_positions.append((
+                        self.robot_data[i]['state'].x,
+                        self.robot_data[i]['state'].y
+                    ))
             
-            if self.viz_data['local_map_2'] is not None:
-                self.axes[0,1].imshow(self.viz_data['local_map_2'], cmap='gray', origin='lower')
-                self.axes[0,1].set_title('Local Map')
-            
-            if self.viz_data['local_map_3'] is not None:
-                self.axes[0,2].imshow(self.viz_data['local_map_3'], cmap='gray', origin='lower')
-                self.axes[0,2].set_title('Local Map')
+            # 绘制局部地图和机器人位置
+            for i in range(3):  # 三个机器人
+                if self.viz_data[f'local_map_{i+1}'] is not None:
+                    # 绘制地图
+                    self.axes[0,i].imshow(self.viz_data[f'local_map_{i+1}'], cmap='gray', origin='lower')
+                    self.axes[0,i].set_title(f'Robot {i+1} Local Map')
+                    
+                    # 在地图上标注机器人位置
+                    if i < len(robot_positions):
+                        # 将全局坐标转换为地图坐标
+                        map_info = self.robot_data[i]['frontiers'].info if self.robot_data[i]['frontiers'] is not None else None
+                        if map_info is not None:
+                            x = int((robot_positions[i][0] - map_info.origin.position.x) / map_info.resolution)
+                            y = int((robot_positions[i][1] - map_info.origin.position.y) / map_info.resolution)
+                            self.axes[0,i].plot(x, y, 'ro', markersize=2, label='Robot')
+                            self.axes[0,i].legend()
             
             # 绘制局部前沿地图
-            if self.viz_data['local_frontier'] is not None:
-                if hasattr(self.viz_data['local_frontier_1'], 'data') and hasattr(self.viz_data['local_frontier_1'], 'info'):
-                    frontier_data = np.array(self.viz_data['local_frontier_1'].data).reshape(
-                        self.viz_data['local_frontier_1'].info.height, 
-                        self.viz_data['local_frontier_1'].info.width)
-                else:
-                    frontier_data = self.viz_data['local_frontier']
-                self.axes[1,0].imshow(frontier_data, cmap='hot', origin='lower')
-                self.axes[1,0].set_title('Local Frontier')
+            for i in range(3):  # 三个机器人
+                if self.viz_data[f'local_frontier_{i+1}'] is not None:
+                    if hasattr(self.viz_data[f'local_frontier_{i+1}'], 'data') and hasattr(self.viz_data[f'local_frontier_{i+1}'], 'info'):
+                        frontier_data = np.array(self.viz_data[f'local_frontier_{i+1}'].data, dtype=np.float32).reshape(
+                            self.viz_data[f'local_frontier_{i+1}'].info.height, 
+                            self.viz_data[f'local_frontier_{i+1}'].info.width)
+                        self.axes[1,i].imshow(frontier_data, cmap='hot', origin='lower')
+                        self.axes[1,i].set_title(f'Robot {i+1} Frontier')
             
-            if self.viz_data['local_frontier_2'] is not None:
-                self.axes[1,1].imshow(self.viz_data['local_frontier_2'], cmap='hot', origin='lower')
-                self.axes[1,1].set_title('Local Frontier')
-            
-            if self.viz_data['local_frontier_3'] is not None:
-                self.axes[1,2].imshow(self.viz_data['local_frontier_3'], cmap='hot', origin='lower')
-                self.axes[1,2].set_title('Local Frontier')
-            
-            # 绘制全局地图
+            # 绘制全局地图和所有机器人位置
             if self.viz_data['global_map'] is not None:
                 self.axes[2,0].imshow(self.viz_data['global_map'], cmap='gray', origin='lower')
                 self.axes[2,0].set_title('Global Map')
+                
+                # 在全局地图上标注所有机器人位置
+                colors = ['r', 'g', 'b']  # 不同机器人使用不同颜色
+                for i, pos in enumerate(robot_positions):
+                    if i < len(colors):
+                        map_info = self.robot_data[0]['frontiers'].info  # 使用第一个机器人的地图信息
+                        if map_info is not None:
+                            x = int((pos[0] - map_info.origin.position.x) / map_info.resolution)
+                            y = int((pos[1] - map_info.origin.position.y) / map_info.resolution)
+                            self.axes[2,0].plot(x, y, f'{colors[i]}o', markersize=2, label=f'Robot {i+1}')
+                self.axes[2,0].legend()
             
             # 绘制全局前沿地图
             if self.viz_data['global_frontier'] is not None:
-                if hasattr(self.viz_data['global_frontier'], 'data') and hasattr(self.viz_data['global_frontier'], 'info'):
-                    frontier_data = np.array(self.viz_data['global_frontier'].data).reshape(
+                if isinstance(self.viz_data['global_frontier'], np.ndarray):
+                    # 如果是numpy数组，直接使用
+                    frontier_data = self.viz_data['global_frontier']
+                elif hasattr(self.viz_data['global_frontier'], 'data') and hasattr(self.viz_data['global_frontier'], 'info'):
+                    # 如果是ROS消息，转换为numpy数组
+                    frontier_data = np.array(self.viz_data['global_frontier'].data, dtype=np.float32).reshape(
                         self.viz_data['global_frontier'].info.height,
                         self.viz_data['global_frontier'].info.width)
                 else:
-                    frontier_data = self.viz_data['global_frontier']
-                self.axes[2,1].imshow(frontier_data, cmap='hot', origin='lower')
-                self.axes[2,1].set_title('Global Frontier')
+                    frontier_data = None
+                
+                if frontier_data is not None:
+                    self.axes[2,1].imshow(frontier_data, cmap='hot', origin='lower')
+                    self.axes[2,1].set_title('Global Frontier')
+            
+            # 添加探索率显示
+            if hasattr(self.env, 'exploration_rate'):
+                self.axes[2,2].text(0.5, 0.5, f'Exploration Rate:\n{self.env.exploration_rate:.2%}', 
+                                  horizontalalignment='center',
+                                  verticalalignment='center',
+                                  transform=self.axes[2,2].transAxes,
+                                  fontsize=12)
+                self.axes[2,2].set_axis_off()
             
             plt.tight_layout()
             self.fig.canvas.draw()

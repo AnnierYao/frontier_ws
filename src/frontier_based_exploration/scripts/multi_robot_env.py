@@ -16,8 +16,8 @@ class MultiRobotEnv:
         
         # 状态空间维度
         self.robot_state_dim = 5  # x, y, theta, linear_vel, angular_vel
-        self.global_map_feature_dim = 64  # 全局地图特征
-        self.global_frontier_feature_dim = 32  # 全局前沿特征
+        self.global_map_feature_dim = 128  # 全局地图特征
+        self.global_frontier_feature_dim = 64  # 全局前沿特征
         self.exploration_rate = 0.0  # 探索率
         
         # 初始化地图和状态
@@ -31,44 +31,30 @@ class MultiRobotEnv:
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         rospy.loginfo(f"Using device: {self.device}")
         
-        # 创建地图编码器（局部地图）
+        # 创建地图编码器（固定输入尺寸 384x384）
         self.map_encoder = nn.Sequential(
-            nn.Conv2d(1, 16, kernel_size=3, stride=2, padding=1),  # 输入: 1xHxW -> 16x(H/2)x(W/2)
+            nn.Conv2d(1, 32, kernel_size=8, stride=4, padding=2),  # -> 32x96x96
             nn.ReLU(),
-            nn.AdaptiveAvgPool2d((32, 32)),  # -> 16x32x32
-            nn.Conv2d(16, 32, kernel_size=3, stride=2, padding=1),  # -> 32x16x16
+            nn.Conv2d(32, 64, kernel_size=4, stride=2, padding=1),  # -> 64x48x48
             nn.ReLU(),
-            nn.Conv2d(32, 64, kernel_size=3, stride=2, padding=1),  # -> 64x8x8
+            nn.Conv2d(64, 64, kernel_size=3, stride=2, padding=1),  # -> 64x24x24
             nn.ReLU(),
-            nn.AdaptiveAvgPool2d((4, 4)),  # -> 64x4x4 = 1024
-            nn.Flatten(),  # -> 1024
-            nn.Linear(1024, 64)  # 1024 -> 64
+            nn.AdaptiveAvgPool2d((8, 8)),  # -> 64x8x8 = 4096
+            nn.Flatten(),  # -> 4096
+            nn.Linear(4096, self.global_map_feature_dim)  # -> 64
         ).to(self.device)
         
-        # 创建全局地图编码器（使用相同的架构）
-        self.global_map_encoder = nn.Sequential(
-            nn.Conv2d(1, 16, kernel_size=3, stride=2, padding=1),
-            nn.ReLU(),
-            nn.AdaptiveAvgPool2d((32, 32)),
-            nn.Conv2d(16, 32, kernel_size=3, stride=2, padding=1),
-            nn.ReLU(),
-            nn.Conv2d(32, 64, kernel_size=3, stride=2, padding=1),
-            nn.ReLU(),
-            nn.AdaptiveAvgPool2d((4, 4)),
-            nn.Flatten(),
-            nn.Linear(1024, 64)  # 修正输入维度
-        ).to(self.device)
-        
-        # 创建前沿编码器（使用较小的架构）
+        # 创建前沿地图编码器（与地图编码器相同的结构）
         self.frontier_encoder = nn.Sequential(
-            nn.Conv2d(1, 8, kernel_size=3, stride=2, padding=1),
+            nn.Conv2d(1, 32, kernel_size=8, stride=4, padding=2),  # -> 32x96x96
             nn.ReLU(),
-            nn.AdaptiveAvgPool2d((16, 16)),
-            nn.Conv2d(8, 16, kernel_size=3, stride=2, padding=1),
+            nn.Conv2d(32, 64, kernel_size=4, stride=2, padding=1),  # -> 64x48x48
             nn.ReLU(),
-            nn.AdaptiveAvgPool2d((4, 4)),  # -> 16x4x4 = 256
-            nn.Flatten(),
-            nn.Linear(256, 32)  # 256 -> 32
+            nn.Conv2d(64, 64, kernel_size=3, stride=2, padding=1),  # -> 64x24x24
+            nn.ReLU(),
+            nn.AdaptiveAvgPool2d((8, 8)),  # -> 64x8x8 = 4096
+            nn.Flatten(),  # -> 4096
+            nn.Linear(4096, self.global_frontier_feature_dim)  # -> 32
         ).to(self.device)
         
         # 修改激光雷达数据存储
@@ -82,113 +68,169 @@ class MultiRobotEnv:
         self.warning_threshold = 0.5      # 警告距离阈值
         
     
+    def _encode_map(self, map_data):
+        """编码地图数据"""
+        if map_data is None:
+            return torch.zeros(self.global_map_feature_dim).to(self.device)
+        
+        # 确保地图数据是正确的形状
+        if isinstance(map_data, np.ndarray):
+            # 归一化到 [-1, 1]
+            map_data = map_data.astype(np.float32) / 100.0
+        else:
+            # 如果是 OccupancyGrid 消息
+            map_data = np.array(map_data.data).reshape(
+                map_data.info.height, map_data.info.width).astype(np.float32) / 100.0
+        
+        # 添加批次和通道维度
+        map_tensor = torch.FloatTensor(map_data).unsqueeze(0).unsqueeze(0).to(self.device)
+        
+        # 编码并分离梯度
+        with torch.no_grad():
+            return self.map_encoder(map_tensor).detach()
+    
+    def _encode_frontier(self, frontier_data):
+        """编码前沿地图数据"""
+        if frontier_data is None:
+            return torch.zeros(self.global_frontier_feature_dim).to(self.device)
+        
+        # 确保前沿数据是正确的形状
+        if isinstance(frontier_data, np.ndarray):
+            # 二值化
+            frontier_data = (frontier_data > 0).astype(np.float32)
+        else:
+            # 如果是 OccupancyGrid 消息
+            frontier_data = (np.array(frontier_data.data).reshape(
+                frontier_data.info.height, frontier_data.info.width) > 0).astype(np.float32)
+        
+        # 添加批次和通道维度
+        frontier_tensor = torch.FloatTensor(frontier_data).unsqueeze(0).unsqueeze(0).to(self.device)
+        
+        # 编码并分离梯度
+        with torch.no_grad():
+            return self.frontier_encoder(frontier_tensor).detach()
+    
     def encode_global_map(self, global_map):
         """编码全局地图"""
         if global_map is None:
-            return np.zeros(self.global_map_feature_dim)
+            return torch.zeros(self.global_map_feature_dim).to(self.device)
         
-        # 直接使用原始大小的地图，让网络自适应处理
-        x = torch.FloatTensor(global_map).unsqueeze(0).unsqueeze(0).to(self.device)
-        return self.global_map_encoder(x).detach().cpu().numpy().flatten()
+        # 使用与局部地图相同的编码器
+        return self._encode_map(global_map)
     
     def encode_local_map(self, local_map):
         """编码局部地图"""
         if local_map is None:
-            return np.zeros(self.global_map_feature_dim)
+            return torch.zeros(self.global_map_feature_dim).to(self.device)
         
-        # 直接使用原始大小的地图，让网络自适应处理
-        x = torch.FloatTensor(local_map).unsqueeze(0).unsqueeze(0).to(self.device)
-        return self.map_encoder(x).detach().cpu().numpy().flatten()
+        # 使用统一的编码方法
+        return self._encode_map(local_map)
     
-    def encode_local_frontier(self, frontier_map):
-        """将局部前沿地图编码为特征向量"""
+    def encode_frontier(self, frontier_map):
+        """编码前沿地图"""
         if frontier_map is None:
-            return np.zeros(32)  # 返回固定维度
+            return torch.zeros(self.global_frontier_feature_dim).to(self.device)
         
-        # 如果输入是 OccupancyGrid 消息
-        if hasattr(frontier_map, 'info'):
-            width = frontier_map.info.width
-            height = frontier_map.info.height
-            data = np.array(frontier_map.data).reshape(height, width)
-        else:
-            # 如果输入已经是 numpy 数组
-            data = frontier_map
-        
-        # 直接使用原始大小的地图，让网络自适应处理
-        x = torch.FloatTensor(data).unsqueeze(0).unsqueeze(0).to(self.device)
-        
-        # 使用编码器
-        with torch.no_grad():
-            return self.frontier_encoder(x).detach().cpu().numpy().flatten()
+        # 使用统一的前沿编码方法
+        return self._encode_frontier(frontier_map)
     
-    def encode_global_frontier(self, frontier_map):
-        """使用CNN编码全局前沿地图"""
-        if frontier_map is None:
-            return np.zeros(self.global_frontier_feature_dim)
+    # def encode_local_frontier(self, frontier_map):
+    #     """将局部前沿地图编码为特征向量"""
+    #     if frontier_map is None:
+    #         return np.zeros(32)  # 返回固定维度
         
-        # 如果输入是 OccupancyGrid 消息
-        if hasattr(frontier_map, 'info'):
-            width = frontier_map.info.width
-            height = frontier_map.info.height
-            data = np.array(frontier_map.data).reshape(height, width)
-        else:
-            # 如果输入已经是 numpy 数组
-            data = frontier_map
+    #     # 如果输入是 OccupancyGrid 消息
+    #     if hasattr(frontier_map, 'info'):
+    #         width = frontier_map.info.width
+    #         height = frontier_map.info.height
+    #         data = np.array(frontier_map.data).reshape(height, width)
+    #     else:
+    #         # 如果输入已经是 numpy 数组
+    #         data = frontier_map
         
-        # 直接使用原始大小的地图，让网络自适应处理
-        x = torch.FloatTensor(data).unsqueeze(0).unsqueeze(0).to(self.device)
-        return self.frontier_encoder(x).detach().cpu().numpy().flatten()
+    #     # 直接使用原始大小的地图，让网络自适应处理
+    #     x = torch.FloatTensor(data).unsqueeze(0).unsqueeze(0).to(self.device)
+        
+    #     # 使用编码器
+    #     with torch.no_grad():
+    #         return self.frontier_encoder(x).detach().cpu().numpy().flatten()
+    
+    # def encode_global_frontier(self, frontier_map):
+    #     """使用CNN编码全局前沿地图"""
+    #     if frontier_map is None:
+    #         return np.zeros(self.global_frontier_feature_dim)
+        
+    #     # 如果输入是 OccupancyGrid 消息
+    #     if hasattr(frontier_map, 'info'):
+    #         width = frontier_map.info.width
+    #         height = frontier_map.info.height
+    #         data = np.array(frontier_map.data).reshape(height, width)
+    #     else:
+    #         # 如果输入已经是 numpy 数组
+    #         data = frontier_map
+        
+    #     # 直接使用原始大小的地图，让网络自适应处理
+    #     x = torch.FloatTensor(data).unsqueeze(0).unsqueeze(0).to(self.device)
+    #     return self.frontier_encoder(x).detach().cpu().numpy().flatten()
     
     def get_state(self, robot_id):
-        """获取单个机器人的状态向量"""
-        # 局部信息
+        """获取单个机器人的状态"""
+        # 获取机器人状态
         robot_state = self.robot_states[robot_id]
         if robot_state is None:
-            rospy.logwarn(f"Robot {robot_id} state is None")
             return np.zeros(self.get_state_dim())
         
-        state_components = []
+        # 基本状态：x, y, theta, linear_vel, angular_vel
+        basic_state = np.array([
+            robot_state.x,
+            robot_state.y,
+            robot_state.theta,
+            robot_state.linear_velocity,
+            robot_state.angular_velocity
+        ], dtype=np.float32)
         
-        # 1. 机器人状态 (5维)
-        robot_state_vec = np.array([
-            robot_state.x, robot_state.y, robot_state.theta,
-            robot_state.linear_velocity, robot_state.angular_velocity
-        ])
-        state_components.append(robot_state_vec)
+        # 编码地图特征并确保是一维的
+        global_map_feature = self.encode_global_map(self.global_map).cpu().numpy().flatten()
+        local_map_feature = self.encode_local_map(self.local_maps[robot_id]).cpu().numpy().flatten()
         
-        # 2. 局部地图编码 (64维)
-        local_map = self.encode_local_map(self.local_maps[robot_id])
-        state_components.append(local_map)
-        
-        # 3. 前沿相关特征
+        # 如果使用前沿信息
         if self.use_frontier:
-            # 局部前沿编码 (32维)
-            local_frontier = self.encode_local_frontier(self.local_frontiers[robot_id])
-            state_components.append(local_frontier)
+            frontier_feature = self.encode_frontier(self.local_frontiers[robot_id]).cpu().numpy().flatten()
+            # 获取激光雷达状态
+            laser_state = self.get_laser_state(robot_id)
             
-            # 全局前沿特征 (32维)
-            global_frontier_feature = self.encode_global_frontier(self.global_frontiers)
-            state_components.append(global_frontier_feature)
-        
-        # 4. 全局地图特征 (64维)
-        global_map_feature = self.encode_global_map(self.global_map)
-        state_components.append(global_map_feature)
-        
-        # 5. 其他机器人位置 (2*(n_robots)维)
-        other_robots_pos = []
-        for i in range(self.n_robots):
-            if self.robot_states[i] is not None:
-                other_robots_pos.extend([self.robot_states[i].x, self.robot_states[i].y])
-            else:
-                other_robots_pos.extend([0.0, 0.0])
-        state_components.append(np.array(other_robots_pos))
-        
-        # 6. 探索率 (1维)
-        exploration_rate = np.array([self.exploration_rate])
-        state_components.append(exploration_rate)
-        
-        # 组合所有特征
-        return np.concatenate(state_components)
+            # 确保所有特征都是一维的
+            features = [
+                basic_state,
+                global_map_feature,
+                local_map_feature,
+                frontier_feature,
+                laser_state
+            ]
+            
+            # 打印调试信息
+            # for i, f in enumerate(features):
+            #     rospy.loginfo(f"Feature {i} shape: {f.shape}")
+            
+            # 组合所有特征
+            return np.concatenate(features)
+        else:
+            # 不使用前沿信息时的状态
+            laser_state = self.get_laser_state(robot_id)
+            
+            # 确保所有特征都是一维的
+            features = [
+                basic_state,
+                global_map_feature,
+                local_map_feature,
+                laser_state
+            ]
+            
+            # 打印调试信息
+            # for i, f in enumerate(features):
+            #     rospy.loginfo(f"Feature {i} shape: {f.shape}")
+            
+            return np.concatenate(features)
     
     def get_all_states(self):
         """获取所有机器人的状态向量"""
@@ -356,33 +398,23 @@ class MultiRobotEnv:
         return energy_value
     
     def get_state_dim(self):
-        """返回状态空间的总维度"""
-        # rospy.loginfo("Calculating state dimension...")
+        """获取状态空间维度"""
+        # 基本状态维度
+        dim = self.robot_state_dim  # x, y, theta, linear_vel, angular_vel
         
-        # 基础维度
-        base_dim = (
-            self.robot_state_dim +         # 机器人状态
-            64 +                           # 局部地图编码
-            64 +                           # 全局地图特征
-            (self.n_robots) * 2 +          # 其他机器人位置
-            1                              # 探索率
-        )
+        # 地图特征维度
+        dim += self.global_map_feature_dim  # 全局地图特征
+        dim += self.global_map_feature_dim  # 局部地图特征
         
-        # 前沿相关维度
-        frontier_dim = 64 if self.use_frontier else 0  # 32(局部) + 32(全局)
+        # 前沿特征维度（如果使用）
+        if self.use_frontier:
+            dim += self.global_frontier_feature_dim
         
-        total_dim = base_dim + frontier_dim
+        # 激光雷达状态维度
+        dim += self.n_laser_sectors
         
-        # 打印维度信息
-        # rospy.loginfo(f"Robot state dim: {self.robot_state_dim}")
-        # rospy.loginfo(f"Local map dim: 64")
-        # if self.use_frontier:
-        #     rospy.loginfo(f"Frontier features dim: {frontier_dim}")
-        # rospy.loginfo(f"Global map dim: 64")
-        # rospy.loginfo(f"Other robots dim: {(self.n_robots) * 2}")
-        # rospy.loginfo(f"Total state dimension: {total_dim}")
-        
-        return total_dim
+        rospy.loginfo(f"State dimension: {dim}")
+        return dim
     
     def get_robot_exploration_rate(self, robot_id):
         """获取单个机器人的探索覆盖率"""
@@ -412,7 +444,7 @@ class MultiRobotEnv:
 
         rospy.loginfo(f"Exploration rate: {exploration_rate:.2f}")
         # 如果探索率超过95%，认为任务完成
-        return exploration_rate > 0.95
+        return exploration_rate > 0.4
     
     def laser_scan_callback(self, msg, robot_id):
         """处理激光雷达数据，将360度分成n_laser_sectors个扇区"""

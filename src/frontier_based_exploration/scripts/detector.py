@@ -54,14 +54,15 @@ def get_robot_pose(listener, map_topic, base_link_topic):
         pass
 
 def get_local_grid_map(mapData, robot_pose, radius=5.0):
-    """提取机器人附近局部网格地图"""
+    """提取机器人附近局部网格地图，但保持全局地图尺寸"""
     resolution = mapData.info.resolution
     origin = mapData.info.origin.position
-    width, height = mapData.info.width, mapData.info.height
+    width = mapData.info.width
+    height = mapData.info.height
     
     # 打印调试信息
-    rospy.loginfo(f"Original map size: {width}x{height}, resolution: {resolution}")
-    rospy.loginfo(f"Map origin: x={origin.x}, y={origin.y}")
+    # rospy.loginfo(f"Map size: {width}x{height}, resolution: {resolution}")
+    # rospy.loginfo(f"Map origin: x={origin.x}, y={origin.y}")
     
     # 计算半径对应的网格数
     grid_radius = int(radius / resolution)
@@ -70,24 +71,26 @@ def get_local_grid_map(mapData, robot_pose, radius=5.0):
     robot_grid_x = int((robot_pose[0] - origin.x) / resolution)
     robot_grid_y = int((robot_pose[1] - origin.y) / resolution)
     
-    # 计算局部地图的范围
+    # 计算局部区域范围
     min_x = max(0, robot_grid_x - grid_radius)
     max_x = min(width, robot_grid_x + grid_radius)
     min_y = max(0, robot_grid_y - grid_radius)
     max_y = min(height, robot_grid_y + grid_radius)
     
-    # 提取局部区域
-    local_width = max_x - min_x
-    local_height = max_y - min_y
-    local_map = np.zeros((local_height, local_width), dtype=np.int8)
+    # 创建与全局地图相同大小的局部地图
+    local_map = np.full((height, width), -1, dtype=np.int8)  # 用-1填充未知区域
     
+    # 只更新机器人周围的区域
     for y in range(min_y, max_y):
         for x in range(min_x, max_x):
             idx = y * width + x
             if 0 <= idx < len(mapData.data):
-                local_map[y - min_y, x - min_x] = mapData.data[idx]
-    rospy.loginfo(f"Local map size: {local_width}x{local_height}")
-    return local_map, (min_x, min_y)
+                local_map[y, x] = mapData.data[idx]
+    
+    # rospy.loginfo(f"Robot at grid coordinates: ({robot_grid_x}, {robot_grid_y})")
+    # rospy.loginfo(f"Local area: ({min_x}, {min_y}) to ({max_x}, {max_y})")
+    
+    return local_map, (0, 0)  # 返回(0,0)因为我们使用全局坐标系
 
 def detector_node():
     # 初始化节点
@@ -164,20 +167,13 @@ def detector_node():
             local_map_msg.header.stamp = rospy.Time.now()
             local_map_msg.header.frame_id = f"{namespace}/base_link"
             
-            # 获取局部地图和原点偏移
-            local_map, (min_x, min_y) = get_local_grid_map(mapData, robot_pose, radius=5.0)
+            # 获取局部地图
+            local_map, _ = get_local_grid_map(mapData, robot_pose, radius=5.0)
             
-            # 设置地图信息
-            local_map_msg.info.resolution = mapData.info.resolution
-            local_map_msg.info.width = local_map.shape[1]
-            local_map_msg.info.height = local_map.shape[0]
-            
-            # 设置局部地图原点
-            local_map_msg.info.origin.position.x = min_x * mapData.info.resolution + mapData.info.origin.position.x
-            local_map_msg.info.origin.position.y = min_y * mapData.info.resolution + mapData.info.origin.position.y
-            
-            # 发布局部地图
+            # 设置地图信息（与全局地图相同）
+            local_map_msg.info = mapData.info  # 直接复制全局地图的信息
             local_map_msg.data = local_map.flatten().tolist()
+            
             local_map_pub.publish(local_map_msg)
             # rospy.loginfo(f"Local map published for {namespace}")
         
